@@ -1,0 +1,39 @@
+import random
+import time 
+    #Encabezado visual del juego 
+print ("="*50)
+print ("Bienvenidos al juego de la ruleta rusa")
+print ("="*50)
+#El programa  espera que una accion del usuario antes de continuar 
+input("poner bala en el tambor (presione Enter)")
+bala = random.randint (1, 6)
+time.sleep (0.5) #pausa Dramatica de medio segundo
+#iniciacion de un acumulador para rastear cuantas veces se ha gatillado
+disparos=0
+#Bucle principal: el juego continuara hasta que el jugador pierda o gane
+while True: 
+    #simulación de girar el tambor en cada ronda 
+    input("girar el tambor (presiona Entrer)")
+
+    #Se genera una posición aleatoria para el percutor (la recámara que se disparará)
+    recamara=random. randint(1, 6)
+    input("apuntar y disparar (Presiona Enter)")
+    time.sleep (1) #pausa de (1) segundo para aumentar la tension
+    # Lógica de Evaluación (Condicional principal)
+    # Comparamos si la posición de la bala coincide con la recámara seleccionada
+    if recamara == bala:
+        print("!bang¡ Has perdido. la bala estaba en la recamara numero:  ", bala)
+        break # Se sale del bucle 'while' porque el jugador "murió"
+    else: 
+        # Si no coinciden, el jugador sobrevive e incrementamos el contador
+        disparos += 1
+        print("has sobrevivido a este intento. ")
+        print ("intentos de disparos: ", disparos)
+        # Condición de victoria: Si el contador llega a 5, el juego termina exitosamente
+        if disparos ==5:
+            print("!Felicidades¡  Has ganado Al sobrevivir 5 intentos.  ")
+            break #se sale del bucle para finalizar el programa 
+#mensaje final de cierre
+print("="*50)
+print("Fin del juego  -  Gracias por jugar")
+print("="*50)
